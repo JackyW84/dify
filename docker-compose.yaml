@@ -1,12 +1,11 @@
 version: "3.9"
 
 services:
-  # Core API Service
   api:
-    image: ghcr.io/langgenius/dify-core:latest
+    # 使用JackyW84的镜像
+    image: ghcr.io/jackyw84/dify-core:latest
     restart: always
     environment:
-      # 基础配置
       - EDITION=SELF_HOSTED
       - CONSOLE_URL=https://difytest.kimazz.com
       - CONSOLE_API_URL=https://difytest.kimazz.com
@@ -26,9 +25,9 @@ services:
       - "traefik.http.routers.dify-api.rule=Host(`difytest.kimazz.com`) && PathPrefix(`/api/`, `/console/api/`)"
       - traefik.http.routers.dify-api.entryPoints=http
 
-  # Web Frontend
   web:
-    image: ghcr.io/langgenius/dify-web:latest
+    # 使用JackyW84的镜像
+    image: ghcr.io/jackyw84/dify-web:latest
     restart: always
     environment:
       - EDITION=SELF_HOSTED
@@ -40,7 +39,6 @@ services:
       - "traefik.http.routers.dify-web.rule=Host(`difytest.kimazz.com`)"
       - traefik.http.routers.dify-web.entryPoints=http
 
-  # Database
   db:
     image: postgres:15-alpine
     restart: always
@@ -51,7 +49,6 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
-  # Redis
   redis:
     image: redis:alpine
     restart: always
