@@ -2,8 +2,8 @@ version: "3.9"
 
 services:
   api:
-    # 使用JackyW84的镜像
-    image: ghcr.io/jackyw84/dify-core:latest
+    # 使用Docker Hub上的公开镜像
+    image: difyai/dify-api:latest
     restart: always
     environment:
       - EDITION=SELF_HOSTED
@@ -26,8 +26,8 @@ services:
       - traefik.http.routers.dify-api.entryPoints=http
 
   web:
-    # 使用JackyW84的镜像
-    image: ghcr.io/jackyw84/dify-web:latest
+    # 使用Docker Hub上的公开镜像
+    image: difyai/dify-web:latest
     restart: always
     environment:
       - EDITION=SELF_HOSTED
