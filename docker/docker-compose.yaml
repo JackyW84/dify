@@ -2,7 +2,6 @@ version: "3.9"
 
 services:
   api:
-    # 使用 langgenius/dify-api 
     image: langgenius/dify-api:latest
     restart: always
     environment:
@@ -26,7 +25,6 @@ services:
       - traefik.http.routers.dify-api.entryPoints=http
 
   web:
-    # 使用 langgenius/dify-web 镜像
     image: langgenius/dify-web:latest
     restart: always
     environment:
@@ -57,8 +55,11 @@ services:
 
 volumes:
   dify_storage:
+    driver: local
   postgres_data:
+    driver: local
   redis_data:
+    driver: local
 
 networks:
   default:
