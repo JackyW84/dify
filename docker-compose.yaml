@@ -2,8 +2,8 @@ version: "3.9"
 
 services:
   api:
-    # 使用https地址直接拉取公共镜像
-    image: difyai/dify-api:latest
+    # 使用 langgenius/dify-api 镜像
+    image: langgenius/dify-api:latest
     restart: always
     environment:
       - EDITION=SELF_HOSTED
@@ -26,8 +26,8 @@ services:
       - traefik.http.routers.dify-api.entryPoints=http
 
   web:
-    # 使用https地址直接拉取公共镜像
-    image: difyai/dify-web:latest
+    # 使用 langgenius/dify-web 镜像
+    image: langgenius/dify-web:latest
     restart: always
     environment:
       - EDITION=SELF_HOSTED
