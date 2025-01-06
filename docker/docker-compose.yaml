@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   api:
-    # 使用 langgenius/dify-api 镜像
+    # 使用 langgenius/dify-api 
     image: langgenius/dify-api:latest
     restart: always
     environment:
